@@ -1,0 +1,53 @@
+.expenseItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: cornflowerblue;
+    max-width: 800px;
+    margin: 10px auto;
+    border-radius: 10px;
+  }
+  
+  .expenseItemDescription {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex: 1;
+  }
+  .expenseItemTitle {
+    flex: 1;
+    font-weight: bold;
+    line-height: 40px;
+  }
+  .expenseItemAmount {
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  
+  .expenseItemDate {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1px;
+    width: 110px;
+    height: 100px;
+    border-radius: 10px;
+
+  }
+  
+  .expenseItemDate .month {
+    font-size: 0.9rem;
+  }
+  
+  .expenseItemDate .day {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: normal;
+  }
+
+  .expenseItemDate .year {
+    font-size: 0.9rem;
+  }
+  

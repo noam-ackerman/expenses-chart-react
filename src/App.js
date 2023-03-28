@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import './style/App.css';
+import Expenses from "./components/Expenses";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  let expenses = [
+    {
+      id: 0,
+      title: "New TV",
+      amount: 200,
+      date: new Date(2021, 3, 14),
+    },
+    {
+      id: 1,
+      title: "React Course",
+      amount: 80,
+      date: new Date(2021, 5, 28),
+    },
+    {
+      id: 2,
+      title: "New Bed",
+      amount: 65,
+      date: new Date(2021, 11, 3),
+    },
+  ];
+
+   return (
+    <div className="bg-gradient p-3">
+      <Expenses data={expenses}/>
     </div>
   );
 }
