@@ -1,0 +1,58 @@
+.newExpense {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: cornflowerblue;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .newExpenseInputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  
+  .newExpenseInput label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .newExpenseInput input {
+    font: inherit;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 320px;
+    max-width: 100%;
+  }
+  .newExpenseInput select {
+    font: inherit;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100px;
+    max-width: 100%;
+  }
+  
+  .submitBtn {
+    font-size: 17px;
+    border: 2px solid white;
+    border-radius: 6px;
+    transition: all 150ms ease;
+    float: right;
+  }
+  
+  .submitBtn:hover {
+    background: #5b6063 !important;
+  }
+  
+  .submitBtn.disabled {
+    pointer-events: none;
+    opacity:0.4;
+  }

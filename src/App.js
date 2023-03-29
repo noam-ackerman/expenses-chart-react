@@ -1,30 +1,20 @@
+import React from "react";
 import './style/App.css';
 import Expenses from "./components/Expenses";
+import NewExpense from "./components/NewExpense";
 
 function App() {
-  let expenses = [
-    {
-      id: 0,
-      title: "New TV",
-      amount: 200,
-      date: new Date(2021, 3, 14),
-    },
-    {
-      id: 1,
-      title: "React Course",
-      amount: 80,
-      date: new Date(2021, 5, 28),
-    },
-    {
-      id: 2,
-      title: "New Bed",
-      amount: 65,
-      date: new Date(2021, 11, 3),
-    },
-  ];
+  let [expenses, setExpenses] = React.useState([]);
+
+  function handleAddExpense(newExpenseData) {
+    setExpenses([...expenses, newExpenseData])
+  }
+
 
    return (
     <div className="bg-gradient p-3">
+      <img src="https://images.cooltext.com/5650973.png" alt="expenses-chart-title" className="title-image"/>
+      <NewExpense onAddExpense={handleAddExpense} />
       <Expenses data={expenses}/>
     </div>
   );
