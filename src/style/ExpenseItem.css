@@ -26,6 +26,7 @@
   .expenseItemAmount {
     font-weight: bold;
     border-radius: 10px;
+    padding:0.3rem 0.8rem;
   }
   
   .expenseItemDate {
@@ -58,7 +59,7 @@
     display:flex;
     justify-content: flex-end;
     align-items: stretch;
-    gap:7px;
+    gap:5px;
   }
   .delete-item {
      background-color:dimgray;
@@ -66,6 +67,7 @@
      font-weight: 700;
      font-size: 0.9rem;
      transition: all 150ms ease;
+     padding:0.3rem 0.8rem;
   }
 
   .delete-item:hover {

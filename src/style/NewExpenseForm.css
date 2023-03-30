@@ -56,3 +56,26 @@
     pointer-events: none;
     opacity:0.4;
   }
+  .newExpenseAction {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+
+  }
+  .newExpenseAction svg {
+    width:45px;
+    height:45px;
+    cursor: pointer;
+  }
+  .newExpenseAction svg path{
+    fill:#fff;
+    transition: fill 200ms ease;
+  }
+  .newExpenseAction svg:hover path:not(.cls-1){
+    fill:#fdb4ff;
+  }
+  .newExpenseAction svg .cls-1 {
+    fill:transparent;
+  }
+

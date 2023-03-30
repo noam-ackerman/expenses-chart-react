@@ -1,0 +1,26 @@
+
+.calculatorOverlay {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgb(0,0,0,0.6);
+    z-index: 9;
+    position: fixed;
+}
+
+.calculator-modal {
+   width: 500px;
+   height: 600px;
+   background-color: #fd9dff;
+   border-radius: 10px;
+   position: absolute;
+   transform: translate(50%, 50%);
+   bottom:50%;
+   right:50%;
+}
+
+
