@@ -6,19 +6,22 @@
     max-width: 800px;
     margin: 10px auto;
     border-radius: 10px;
+    position: relative;
   }
   
   .expenseItemDescription {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
     flex: 1;
+    gap:8px;
   }
   .expenseItemTitle {
     flex: 1;
     font-weight: bold;
     line-height: 40px;
+    cursor: pointer;
   }
   .expenseItemAmount {
     font-weight: bold;
@@ -51,3 +54,33 @@
     font-size: 0.9rem;
   }
   
+  .amount-delete-wrapper {
+    display:flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap:7px;
+  }
+  .delete-item {
+     background-color:dimgray;
+     border-radius: 10px;
+     font-weight: 700;
+     font-size: 0.9rem;
+     transition: all 150ms ease;
+  }
+
+  .delete-item:hover {
+    background-color:darkgray;
+  }
+
+  .hidden {
+    display:none;
+  }
+
+  .expenseItemInput {
+    font: inherit;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    flex:1;
+    max-width: 100%;
+  }

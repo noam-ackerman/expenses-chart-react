@@ -33,8 +33,6 @@ export default function NewExpenseForm(props) {
     setDate(e.target.value);
   }
 
-
-
   function handleSubmit(e) {
     e.preventDefault();
     const newExpenseData = {
@@ -47,6 +45,7 @@ export default function NewExpenseForm(props) {
     setTitle("");
     setAmount("");
     setDate("");
+    props.expenseWasAdded();
   }
 
   return (

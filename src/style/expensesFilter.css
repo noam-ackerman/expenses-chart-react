@@ -1,0 +1,19 @@
+.filter-wrapper {
+    background: cornflowerblue;
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.year-selector {
+    width:130px;
+    font: inherit;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    max-width: 100%;
+}

@@ -12,7 +12,7 @@ export default function NewExpense(props) {
   }
   return (
     <div className="newExpense bg-gradient shadow-sm">
-     <NewExpenseForm onSaveData={HandleSavedExpenseData} /> 
+     <NewExpenseForm onSaveData={HandleSavedExpenseData} expenseWasAdded={props.expenseWasAdded}/> 
     </div>
   );
 }
