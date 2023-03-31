@@ -6,7 +6,6 @@ export default function ExpensesFilter(props) {
    const years = props.years;
 
    function handleYearChange(event) {
-    console.log("changed");
     props.sendSelectedYear(event.target.value);
    }
 
@@ -19,8 +18,10 @@ export default function ExpensesFilter(props) {
       }
    })
 
+
    return (
     <div className="filter-wrapper bg-gradient shadow-sm">
+        <div className="filter-title text-white fs-6">FILTER BY YEAR</div>
         <select className="year-selector" ref={selector} value={props.selectedYear} onChange={handleYearChange}>
             <option>All Time</option>
             {years.map((year, index) => {
@@ -29,6 +30,5 @@ export default function ExpensesFilter(props) {
         </select>
     </div>
    )
-
 
 }

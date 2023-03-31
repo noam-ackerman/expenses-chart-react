@@ -28,14 +28,13 @@ export default function ExpenseItem(props) {
 
   React.useEffect(() => {
     window.addEventListener("click", function(event){
-      console.log(event.target)
       if(event.target !== titleInput.current && event.target !== title.current  && editMode  && titleInput.current !== null && titleInput.current.value.trim().length > 0) {
         setEditMode(false);
       }
     })
   
     document.addEventListener("keypress", function(event){
-      if(event.which === 13 && editMode && titleInput.current.value.trim().length > 0) {
+      if(event.which === 13 && editMode && titleInput.current !== null &&titleInput.current.value.trim().length > 0) {
         setEditMode(false);
       }
     })
@@ -60,7 +59,7 @@ export default function ExpenseItem(props) {
         <input ref={titleInput} type="text" value={props.data.title} className="expenseItemInput" onChange={handleTitleChange}/>
         <div className="amount-delete-wrapper me-2 fs-5">
           <div className="expenseItemAmount me-1 border border-2 border-light bg-dark bg-gradient shadow text-white">
-          {props.data.currency}{props.data.amount}
+          {props.currency}{props.data.amount}
           </div>
           <button ref={deleteBtn} className="delete-item text-white border border-2 border-light shadow bg-gradient" onClick={deleteItem}>DELETE</button>
         </div>

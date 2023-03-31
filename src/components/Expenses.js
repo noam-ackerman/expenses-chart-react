@@ -2,16 +2,17 @@ import React from "react";
 import ExpenseItem from "./ExpenseItem";
 
 export default function Expenses(props) {
+
+  console.log(props.data);
   props.data.sort(function (a, b) {
     var aTime = a.date.getTime(),
-      bTime = b.date.getTime();
+      bTime = a.date.getTime();
     return bTime - aTime;
   })
 
   function sendDeletedItem(item){
     let newExpensesArray = props.data.filter((x) => x.id !== item.id)
     props.sendNewExpensesArray(newExpensesArray);
-    console.log(newExpensesArray)
   }
 
   function titleChanged(newTitle, id) {
@@ -25,7 +26,7 @@ export default function Expenses(props) {
         {props.data.map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
             </div>
           );
         })}
@@ -39,7 +40,7 @@ export default function Expenses(props) {
         }).map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
             </div>
           );
         })}

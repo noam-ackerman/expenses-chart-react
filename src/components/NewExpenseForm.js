@@ -6,7 +6,6 @@ export default function NewExpenseForm(props) {
   const [typedTitle, setTitle] = useState("");
   const [typedAmount, setAmount] = useState("");
   const [typedDate, setDate] = useState("");
-  const [typedCurrency, setCurreny] = useState("€");
   const [valid, setValid] = useState(false);
   const [calculatorMode, setcalculatorMode] = useState(false);
 
@@ -18,13 +17,10 @@ export default function NewExpenseForm(props) {
     }
   }, [valid, typedTitle, typedAmount, typedDate])
 
-  const currencies = ["€", "$",  "£", "₪", "¥", "₺", "R", "฿"];
+
 
   function handleTitleChange(e) {
     setTitle(e.target.value);
-  }
-  function handleCurrencyChange(e) {
-    setCurreny(e.target.value);
   }
 
   function handleAmountChange(e) {
@@ -34,6 +30,10 @@ export default function NewExpenseForm(props) {
   function handleDateChange(e) {
     setDate(e.target.value);
   }
+  const currencies = ["€", "$",  "£", "₪"];
+  function handleCurrencyChange(e) {
+    props.sendCurrency(e.target.value);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,13 +41,11 @@ export default function NewExpenseForm(props) {
       title: typedTitle,
       amount: typedAmount,
       date: new Date(typedDate),
-      currency:typedCurrency,
     };
     props.onSaveData(newExpenseData);
     setTitle("");
     setAmount("");
     setDate("");
-    props.expenseWasAdded();
   }
 
   function toggleCalculator(){
@@ -77,15 +75,14 @@ export default function NewExpenseForm(props) {
           <input
             type="date"
             min="2022-01-01"
-            max="2030-12-31"
             onChange={handleDateChange}
             value={typedDate}
             onKeyDown={(e) =>  e.which === 13 ? e.preventDefault() : null}
           />
         </div>
         <div className="newExpenseInput">
-          <label className="text-white">Currency</label>
-          <select value={typedCurrency} onChange={handleCurrencyChange}>
+          <label className="text-white">App Currency</label>
+          <select value={props.selectedCurrency} onChange={handleCurrencyChange}>
              {currencies.map((currency, index) => {
               return (
                 <option key={index}>{currency}</option>
@@ -100,7 +97,7 @@ export default function NewExpenseForm(props) {
       :
        <></>
       }
-        <svg class="calculatorBtn" onClick={toggleCalculator} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
+        <svg className="calculatorBtn" onClick={toggleCalculator} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
           <defs>
           </defs>
           <path className="cls-1" d="M384,384H0V0H384V384Zm-48.01-192.07c0-45.64,.05-91.28-.02-136.92-.04-24.85-18.29-43.11-43.12-43.13-67.26-.05-134.52-.05-201.79,0-24.82,.02-43.11,18.31-43.12,43.12-.04,91.28-.04,182.56,0,273.83,.01,24.81,18.31,43.12,43.12,43.14,67.26,.05,134.52,.04,201.79-.03,3.59,0,7.27-.37,10.75-1.2,19.62-4.72,32.35-21.2,32.37-41.9,.05-45.64,.02-91.28,.02-136.92Z"/>
