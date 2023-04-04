@@ -20,8 +20,8 @@ function App() {
     :
       "€"
   );
-  const [years, setYears] = React.useState([]);
   const [selectedYear, setSelectedYear] = React.useState("All Time");
+  const [years, setYears] = React.useState([]);
   
 
   function handleAddExpense(newExpenseData) {
@@ -29,11 +29,10 @@ function App() {
   }
 
   function sendCurrency(currency){
-    setCurreny(currency);
+    setCurreny(currency)
+    window.localStorage.setItem("currency",JSON.stringify(currency))
   }
-  useEffect(() => {
-    window.localStorage.setItem("currency",JSON.stringify(selectedCurrency))
-  },[selectedCurrency])
+
   
   useEffect(() => {
     const yearsArray = []
