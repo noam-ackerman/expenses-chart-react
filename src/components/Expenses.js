@@ -2,7 +2,7 @@ import React from "react";
 import ExpenseItem from "./ExpenseItem";
 
 export default function Expenses(props) {
-
+  
   console.log(props.data);
   props.data.sort(function (a, b) {
     var aTime = a.date.getTime(),
@@ -15,9 +15,6 @@ export default function Expenses(props) {
     props.sendNewExpensesArray(newExpensesArray);
   }
 
-  function titleChanged(newTitle, id) {
-     props.titleChanged(newTitle, id);
-  }
 
 
   if(props.selectedYear === "All Time") {
@@ -26,7 +23,7 @@ export default function Expenses(props) {
         {props.data.map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} itemEdit={props.itemEdit}/>
             </div>
           );
         })}
@@ -40,7 +37,7 @@ export default function Expenses(props) {
         }).map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} titleChanged={titleChanged}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} itemEdit={props.itemEdit}/>
             </div>
           );
         })}

@@ -18,7 +18,6 @@ export default function ExpensesFilter(props) {
       }
    })
 
-
    return (
     <div className="filter-wrapper bg-gradient shadow-sm">
         <div className="filter-title text-white fs-6">FILTER BY YEAR</div>
