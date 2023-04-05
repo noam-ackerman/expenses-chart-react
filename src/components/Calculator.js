@@ -1,9 +1,12 @@
 import React from "react";
 import "../style/Calculator.css";
 
+
 export default function Calculator(props) {
     let calculatorModal = React.useRef();
     let calculatorOverLay = React.useRef();
+    const [calculation, setCalculation] = React.useState({array:[], error:false});
+    const [accumulativeCalc, setaccumulativeCalc] = React.useState(".")
 
     function handleOverlayClick(event){
        if(event.target !== calculatorModal.current) {
@@ -11,31 +14,61 @@ export default function Calculator(props) {
         }
     }
 
+    function handleAddValue(newValue){
+      setCalculation({array:[...calculation.array , newValue], error:false});
+    }
+    function clearAll(){
+        setCalculation({array:[],error:false});
+    }
+
+    function Calculate(){
+        let results;
+        let validCode = true;
+        try {
+           // eslint-disable-next-line
+           results = Function("return " + accumulativeCalc)()      
+          } catch (e) {
+            if (e instanceof SyntaxError) {
+                validCode = false;
+                setCalculation({array:[],error:true});
+            }
+          } finally {
+            if(validCode){
+               setCalculation({array:[results],error:false});
+            }
+          }
+    }
+
+    React.useEffect(() => {
+        setaccumulativeCalc(calculation.array.length === 0 && !calculation.error ? "." : calculation.error ? "ERROR! bad calc" : calculation.array.join(''));
+    },[calculation])
+
+
     return <>
         <div  ref={calculatorOverLay} className="calculatorOverlay" onClick={handleOverlayClick}></div>
         <div ref={calculatorModal} className="calculator-modal  bg-gradient shadow-sm p-4">
-            <div className="calculator-screen shadow-sm"></div>
+            <div className="calculator-screen shadow-sm">{accumulativeCalc}</div>
             <div className="calculator-buttons">
-             <div className="clear shadow-sm orange">AC</div>
-             <div className="previousClear shadow-sm orange">CE</div>
-             <div className="precent shadow-sm orange">%</div>
-             <div className="division shadow-sm orange">÷</div>
-             <div className="1 shadow-sm" >1</div>
-             <div className="2 shadow-sm">2</div>
-             <div className="3 shadow-sm">3</div>
-             <div className="Multiplication shadow-sm orange">×</div>
-             <div className="4 shadow-sm">4</div>
-             <div className="5 shadow-sm">5</div>
-             <div className="6 shadow-sm">6</div>
-             <div className="Subtraction shadow-sm orange">−</div>
-             <div className="7 shadow-sm">7</div>
-             <div className="8 shadow-sm">8</div>
-             <div className="9 shadow-sm">9</div>
-             <div className="addition shadow-sm orange">+</div>
-             <div className="decimal shadow-sm">.</div>
-             <div className="0 shadow-sm">0</div>
-             <div className="negative shadow-sm">-</div>
-             <div className="calculate shadow-sm orange">=</div>
+             <div className="button shadow-sm orange" onClick={clearAll}>AC</div>
+             <div className="button shadow-sm orange" onClick={() => handleAddValue("(")}>(</div>
+             <div className="button shadow-sm orange" onClick={() => handleAddValue(")")}>)</div>
+             <div className="button shadow-sm orange" onClick={() => handleAddValue("/")}>÷</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("1")}>1</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("2")}>2</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("3")}>3</div>
+             <div className="button shadow-sm orange" onClick={() =>handleAddValue("*")}>×</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("4")}>4</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("5")}>5</div>
+             <div className="button shadow-sm"onClick={() => handleAddValue("6")}>6</div>
+             <div className="button shadow-sm orange" onClick={() => handleAddValue("-")}>−</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("7")}>7</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("8")}>8</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("9")}>9</div>
+             <div className="button shadow-sm orange" onClick={() => handleAddValue("+")}>+</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue(".")}>.</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("0")}>0</div>
+             <div className="button shadow-sm" onClick={() => handleAddValue("-")}>-</div>
+             <div className="button shadow-sm orange" onClick={Calculate}>=</div>
            </div>
         </div>
     </>

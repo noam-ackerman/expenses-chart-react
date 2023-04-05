@@ -33,6 +33,10 @@
     background-color: #fff;
     margin:5px;
     margin-bottom:15px;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: right;
+    align-items: flex-end;
 }
 
 .calculator-buttons {

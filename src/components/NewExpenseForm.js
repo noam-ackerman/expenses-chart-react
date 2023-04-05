@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "../style/NewExpenseForm.css";
 import Calculator from "./Calculator";
 
+
+
 export default function NewExpenseForm(props) {
   const [typedTitle, setTitle] = useState("");
   const [typedAmount, setAmount] = useState("");
@@ -93,7 +95,7 @@ export default function NewExpenseForm(props) {
       </div>
       <div className="newExpenseAction">
       {calculatorMode ?
-        <Calculator toggleCalculator={toggleCalculator} calculatorMode={calculatorMode}/>
+         <Calculator toggleCalculator={toggleCalculator} calculatorMode={calculatorMode} hasError={false}/>
       :
        <></>
       }
