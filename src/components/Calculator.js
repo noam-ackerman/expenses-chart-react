@@ -20,6 +20,11 @@ export default function Calculator(props) {
     function clearAll(){
         setCalculation({array:[],error:false});
     }
+    function clearLast(){
+        let array = [...calculation.array]
+        array.pop();
+        setCalculation({array:[...array],error:false});
+    }
 
     function Calculate(){
         let results;
@@ -47,7 +52,7 @@ export default function Calculator(props) {
     return <>
         <div  ref={calculatorOverLay} className="calculatorOverlay" onClick={handleOverlayClick}></div>
         <div ref={calculatorModal} className="calculator-modal  bg-gradient shadow-sm p-4">
-            <div className="calculator-screen shadow-sm">{accumulativeCalc}</div>
+            <div className="calculator-screen shadow-sm"><span>{accumulativeCalc}</span></div>
             <div className="calculator-buttons">
              <div className="button shadow-sm orange" onClick={clearAll}>AC</div>
              <div className="button shadow-sm orange" onClick={() => handleAddValue("(")}>(</div>
@@ -67,7 +72,7 @@ export default function Calculator(props) {
              <div className="button shadow-sm orange" onClick={() => handleAddValue("+")}>+</div>
              <div className="button shadow-sm" onClick={() => handleAddValue(".")}>.</div>
              <div className="button shadow-sm" onClick={() => handleAddValue("0")}>0</div>
-             <div className="button shadow-sm" onClick={() => handleAddValue("-")}>-</div>
+             <div className="button shadow-sm" onClick={clearLast}>CE</div>
              <div className="button shadow-sm orange" onClick={Calculate}>=</div>
            </div>
         </div>

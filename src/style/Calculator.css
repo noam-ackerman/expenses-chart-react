@@ -13,7 +13,8 @@
 }
 
 .calculator-modal {
-   min-width: 320px;
+   min-width: 330px;
+   max-width: 330px;
    background-color: #fdb4ff;
    border-radius: 10px;
    position: absolute;
@@ -33,10 +34,9 @@
     background-color: #fff;
     margin:5px;
     margin-bottom:15px;
-    font-size: 1.6rem;
-    display: flex;
-    justify-content: right;
-    align-items: flex-end;
+    font-size: 1.8rem;
+    text-align: right;
+    overflow-x: auto;
 }
 
 .calculator-buttons {
