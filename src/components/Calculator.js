@@ -10,7 +10,7 @@ export default function Calculator(props) {
 
     function handleOverlayClick(event){
        if(event.target !== calculatorModal.current) {
-            props.toggleCalculator(props.calculatorMode);
+            props.toggleCalculator();
         }
     }
 
@@ -23,7 +23,7 @@ export default function Calculator(props) {
     function clearLast(){
         let array = [...calculation.array]
         array.pop();
-        setCalculation({array:[...array],error:false});
+        setCalculation({array: array,error:false});
     }
 
     function Calculate(){
