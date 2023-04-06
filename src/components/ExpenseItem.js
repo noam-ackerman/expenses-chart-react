@@ -4,18 +4,18 @@ import "../style/ExpenseItem.css";
 
 export default function ExpenseItem(props) {
   const [editMode, setEditMode] = React.useState(false);
-
-    
-  function deleteItem(e){
-    props.sendDeletedItem(props.data);
-    setEditMode(false);
-  }    
+  
   
   const titleInput = React.useRef()
   const amountInput = React.useRef()
   const title = React.useRef()
   const amount = React.useRef()
   const deleteBtn = React.useRef();
+
+  function deleteItem(e){
+    props.sendDeletedItem(props.data);
+    setEditMode(false);
+  }  
 
 
   function handleEdit(){
@@ -36,7 +36,7 @@ export default function ExpenseItem(props) {
     })
   
     document.addEventListener("keypress", function(event){
-      if(event.which === 13 && editMode && titleInput.current && amountInput.current !== null && titleInput.current.value.trim().length > 0 && amountInput.current.value.trim().length > 0 && containsOnlyNumbers(amountInput.current.value)) {
+      if(event.which === 13 && editMode && titleInput.current !== null && amountInput.current !== null && titleInput.current.value.trim().length > 0 && amountInput.current.value.trim().length > 0 && containsOnlyNumbers(amountInput.current.value)) {
         setEditMode(false);
       }
     })
