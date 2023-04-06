@@ -44,7 +44,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, 1fr);
 }
-.calculator-buttons div {
+.calculator-buttons .button {
   border-radius: 6px;
     background-color: rgb(247, 234, 214);
     color:slateblue;
@@ -58,7 +58,7 @@
     font-weight:bold;
     cursor: pointer;
 }
-.calculator-buttons div:hover {
+.calculator-buttons .button:hover {
     color: cornflowerblue;
 }
 
