@@ -3,10 +3,9 @@ import ExpenseItem from "./ExpenseItem";
 
 export default function Expenses(props) {
   
-  console.log(props.data);
   props.data.sort(function (a, b) {
     var aTime = a.date.getTime(),
-      bTime = a.date.getTime();
+      bTime = b.date.getTime();
     return bTime - aTime;
   })
 
