@@ -58,7 +58,7 @@ export default function ExpenseItem(props) {
 
 
   return (
-    <div className="expenseItem p-1 bg-gradient shadow-sm">
+    <div className="expenseItem p-2 bg-gradient shadow-sm">
       <ExpenseDate date={props.data.date} />
       <div className="expenseItemDescription">
         <div ref={title} className="expenseItemTitle ms-1 p-1 fs-4 text-white" onClick={() => setEditMode(true)}>{props.data.title}</div>
