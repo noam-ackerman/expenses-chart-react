@@ -15,7 +15,8 @@
     align-items: center;
     justify-content: flex-start;
     flex: 1;
-    gap:8px;
+    gap:12px;
+    flex-wrap:wrap;
   }
   .expenseItemTitle {
     flex: 1;
@@ -93,10 +94,15 @@
     border-radius: 6px;
     border: 1px solid #ccc;
     width:90px;
+    margin-right: 5px;
   }
 
-  @media(max-width:800px) {
-    .expenseItemDescription {
-      flex-wrap:wrap;
+   @media(max-width:600px) {
+    .expenseItem {
+      flex-direction: column;
+      align-items: flex-start;
     }
-  }
+   .expenseItemDescription {
+    width: 100%;
+   }
+  } 

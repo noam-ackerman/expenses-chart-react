@@ -60,10 +60,10 @@ export default function ExpenseItem(props) {
   return (
     <div className="expenseItem p-2 bg-gradient shadow-sm">
       <ExpenseDate date={props.data.date} />
-      <div className="expenseItemDescription">
+      <div className="expenseItemDescription p-2">
         <div ref={title} className="expenseItemTitle ms-1 p-1 fs-4 text-white" onClick={() => setEditMode(true)}>{props.data.title}</div>
         <input ref={titleInput} type="text" value={props.data.title} className="expenseItemInput" onChange={handleEdit}/>
-        <div className="amount-delete-wrapper me-2 fs-5">
+        <div className="amount-delete-wrapper fs-5">
           <div ref={amount} className="expenseItemAmount me-1 border border-2 border-light bg-dark bg-gradient shadow text-white" onClick={() => setEditMode(true)}>
           {props.currency}{props.data.amount}
           </div>
