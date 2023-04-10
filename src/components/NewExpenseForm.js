@@ -19,6 +19,9 @@ export default function NewExpenseForm(props) {
     }
   }, [valid, typedTitle, typedAmount, typedDate])
 
+  React.useEffect(() => {
+    calculatorMode ? document.querySelector("body").classList.add("calculator-open") : document.querySelector("body").classList.remove("calculator-open")
+  }, [calculatorMode])
 
 
   function handleTitleChange(e) {

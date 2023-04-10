@@ -3,3 +3,7 @@ body {
   background:	#e6d7ff !important;
 }
 
+body.calculator-open {
+  height: 100vh;
+  overflow-y: hidden;
+}
