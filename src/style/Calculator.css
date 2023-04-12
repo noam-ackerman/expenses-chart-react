@@ -17,7 +17,7 @@
    max-width: 330px;
    background-color: #fdb4ff;
    border-radius: 10px;
-   position: absolute;
+   position: fixed;
    transform: translate(50%, 50%);
    bottom:50%;
    right:50%;
