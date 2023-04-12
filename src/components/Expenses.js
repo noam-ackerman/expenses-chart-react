@@ -4,8 +4,8 @@ import ExpenseItem from "./ExpenseItem";
 export default function Expenses(props) {
   
   props.data.sort(function (a, b) {
-    var aTime = a.date.getTime(),
-      bTime = b.date.getTime();
+    var aTime = new Date(a.date).getTime(),
+      bTime = new Date(b.date).getTime();
     return bTime - aTime;
   })
 
@@ -14,6 +14,7 @@ export default function Expenses(props) {
     props.sendNewExpensesArray(newExpensesArray);
   }
 
+   console.log("expenses",props.data)
 
 
   if(props.selectedYear === "All Time") {
@@ -32,7 +33,7 @@ export default function Expenses(props) {
     return (
       <div className="expenseItemsGroup">
         {props.data.filter((expense) => {
-          return +props.selectedYear === expense.date.getFullYear();
+          return +props.selectedYear === new Date(expense.date).getFullYear();
         }).map((expense) => {
           return (
             <div key={expense.id}>

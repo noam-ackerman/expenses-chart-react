@@ -36,8 +36,9 @@ function App() {
   
   useEffect(() => {
     const yearsArray = []
+    console.log(expenses)
     expenses.forEach((expense) => {
-      const year = expense.date.getFullYear()
+      const year = new Date(expense.date).getFullYear()
       if(!yearsArray.includes(year)){
         yearsArray.push(year);
       }
@@ -55,9 +56,13 @@ function App() {
     setExpenses(newExpensesArray);
   }
 
-  function itemEdit(newTitle, newAmount, id){
+  function itemEdit(data, id){
+    console.log("data",data, id)
+    let newTitle = data.title;
+    let newAmount = data.amount.trim();
+    let newDate = data.date;
     const fixedExpenses = expenses.map(expense => 
-      expense.id === id  ? {...expense, title : `${newTitle}`, amount : `${newAmount}`} : {...expense}
+      expense.id === id  ? {title : `${newTitle}`, amount : `${newAmount}`, date:`${newDate}`, id : `${id}`} : {...expense}
     )
     setExpenses(fixedExpenses);
   }

@@ -2,9 +2,11 @@ import React from "react";
 import "../style/ExpenseItem.css";
 
 export default function ExpenseDate(props) {
-  const day = props.date.toLocaleString("en-US", { day: "2-digit" });
-  const month = props.date.toLocaleString("en-US", { month: "long" });
-  const year = props.date.getFullYear();
+  let date = new Date (props.date);
+  const day = date.toLocaleString("en-US", { day: "2-digit" });
+  const month = date.toLocaleString("en-US", { month: "long" });
+  const year = date.getFullYear();
+
 
   return (
     <div className="expenseItemDate d-flex m-2 border border-2 border-light bg-dark bg-gradient text-white shadow">

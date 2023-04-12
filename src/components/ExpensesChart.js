@@ -11,7 +11,8 @@ export default function ExpensesChart(props){
                 chartDataPoints.push({label: year, value:0}) 
             })
             expenses.forEach((expense) => {
-                let expenseYear = expense.date.getFullYear();
+                let date = new Date (expense.date);
+                let expenseYear = date.getFullYear();
                 let dataPoint = chartDataPoints.find((point) => +point.label === +expenseYear)
                 if(dataPoint !== undefined) {
                 dataPoint.value += +expense.amount;
@@ -37,9 +38,9 @@ export default function ExpensesChart(props){
             {label:"Dec", value:0},
         ]
 
-        let filteredExpenses = props.expenses.filter((expense) => +expense.date.getFullYear() === +props.selectedYear)
+        let filteredExpenses = props.expenses.filter((expense) => +(new Date(expense.date).getFullYear()) === +props.selectedYear)
         filteredExpenses.forEach((expense) => {
-            const expenseMonth = expense.date.getMonth();
+            const expenseMonth = new Date(expense.date).getMonth();
             chartDataPoints[expenseMonth].value += +expense.amount;
         })
 

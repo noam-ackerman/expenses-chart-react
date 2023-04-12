@@ -4,7 +4,6 @@ import "../style/Calculator.css";
 
 export default function Calculator(props) {
     let calculatorModal = React.useRef();
-    let calculatorOverLay = React.useRef();
     const [calculation, setCalculation] = React.useState({array:[], error:false});
     const [accumulativeCalc, setaccumulativeCalc] = React.useState(".")
 
@@ -50,7 +49,7 @@ export default function Calculator(props) {
 
 
     return <>
-        <div  ref={calculatorOverLay} className="calculatorOverlay" onClick={handleOverlayClick}></div>
+        <div className="calculatorOverlay" onClick={handleOverlayClick}></div>
         <div ref={calculatorModal} className="calculator-modal  bg-gradient shadow-sm p-4">
             <div className="calculator-screen shadow-sm"><span>{accumulativeCalc}</span></div>
             <div className="calculator-buttons">
