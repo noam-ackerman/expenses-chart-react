@@ -31,7 +31,7 @@ export default function ExpenseItem(props) {
       <div className="expenseItemDescription p-2">
         <div ref={title} className="expenseItemTitle ms-1 p-1 fs-4 text-white">{props.data.title}</div>
         <div className="amount-delete-wrapper fs-5">
-          <div ref={amount} className="expenseItemAmount me-1 border border-2 border-light bg-dark bg-gradient shadow text-white">
+          <div ref={amount} className="expenseItemAmount border border-2 border-light bg-dark bg-gradient shadow text-white">
           {props.currency}{props.data.amount}
           </div>
           <button ref={editBtn} className="edit-item text-white border border-2 border-light shadow bg-gradient" onClick={toggleEditItem}>

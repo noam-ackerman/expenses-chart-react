@@ -59,3 +59,27 @@
     text-align: center;
   }
 
+  @media (max-width:830px) {
+    .chart-wrapper.months {
+      gap: 1.7rem;
+    }
+
+  }
+  @media (max-width:760px) {
+    .chart-wrapper.months {
+      gap: 2.2rem;
+    }
+
+  }
+
+  @media (max-width:450px) {
+    .chart-wrapper.months {
+      gap: 3.2rem;
+    }
+    .chart-wrapper.years  {
+      gap: 2rem;
+    }
+
+  }
+
+
