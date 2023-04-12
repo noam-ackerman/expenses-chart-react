@@ -9,13 +9,6 @@ export default function Expenses(props) {
     return bTime - aTime;
   })
 
-  function sendDeletedItem(item){
-    let newExpensesArray = props.data.filter((x) => x.id !== item.id)
-    props.sendNewExpensesArray(newExpensesArray);
-  }
-
-   console.log("expenses",props.data)
-
 
   if(props.selectedYear === "All Time") {
     return (
@@ -23,7 +16,7 @@ export default function Expenses(props) {
         {props.data.map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} itemEdit={props.itemEdit}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={props.sendDeletedItem} itemEdit={props.itemEdit}/>
             </div>
           );
         })}
@@ -37,7 +30,7 @@ export default function Expenses(props) {
         }).map((expense) => {
           return (
             <div key={expense.id}>
-              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={sendDeletedItem} itemEdit={props.itemEdit}/>
+              <ExpenseItem data={expense} currency={props.currency} sendDeletedItem={props.sendDeletedItem} itemEdit={props.itemEdit}/>
             </div>
           );
         })}

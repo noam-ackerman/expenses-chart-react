@@ -36,7 +36,6 @@ function App() {
   
   useEffect(() => {
     const yearsArray = []
-    console.log(expenses)
     expenses.forEach((expense) => {
       const year = new Date(expense.date).getFullYear()
       if(!yearsArray.includes(year)){
@@ -52,12 +51,12 @@ function App() {
     setSelectedYear(year)
   }
 
-  function sendNewExpensesArray(newExpensesArray){
+  function sendDeletedItem(item){
+    let newExpensesArray = expenses.filter((x) => x.id !== item.id)
     setExpenses(newExpensesArray);
   }
 
   function itemEdit(data, id){
-    console.log("data",data, id)
     let newTitle = data.title;
     let newAmount = data.amount.trim();
     let newDate = data.date;
@@ -75,7 +74,7 @@ function App() {
       <NewExpense onAddExpense={handleAddExpense} selectedCurrency={selectedCurrency} sendCurrency={sendCurrency}/>
       {expenses.length > 0 ? <ExpensesFilter years={years} sendSelectedYear={SelectedYear} selectedYear={selectedYear}/> : null }
       {expenses.length > 0 ? <ExpensesChart expenses={expenses} years={years} selectedYear={selectedYear}/> : null}
-      <Expenses data={expenses} currency={selectedCurrency} selectedYear={selectedYear} sendNewExpensesArray={sendNewExpensesArray} itemEdit={itemEdit}/>
+      <Expenses data={expenses} currency={selectedCurrency} selectedYear={selectedYear} sendDeletedItem={sendDeletedItem} itemEdit={itemEdit}/>
     </div>
   );
 }

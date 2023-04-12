@@ -3,7 +3,6 @@ import "../style/NewExpenseForm.css";
 import Calculator from "./Calculator";
 
 
-
 export default function NewExpenseForm(props) {
   const [typedTitle, setTitle] = useState("");
   const [typedAmount, setAmount] = useState("");
@@ -97,10 +96,8 @@ export default function NewExpenseForm(props) {
         </div>
       </div>
       <div className="newExpenseAction">
-      {calculatorMode ?
+      {calculatorMode &&
          <Calculator toggleCalculator={toggleCalculator} calculatorMode={calculatorMode} hasError={false}/>
-      :
-       <></>
       }
         <svg className="calculatorBtn" onClick={toggleCalculator} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
           <defs>
