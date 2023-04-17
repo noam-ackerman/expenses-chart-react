@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import "../style/NewExpenseForm.css";
 import Calculator from "./Calculator";
+
 
 
 export default function NewExpenseForm(props) {
@@ -97,7 +99,10 @@ export default function NewExpenseForm(props) {
       </div>
       <div className="newExpenseAction">
       {calculatorMode &&
-         <Calculator toggleCalculator={toggleCalculator} calculatorMode={calculatorMode} hasError={false}/>
+         ReactDOM.createPortal(
+         <Calculator toggleCalculator={toggleCalculator} calculatorMode={calculatorMode} hasError={false}/>,
+         document.getElementById("modal-root")
+         )
       }
         <svg className="calculatorBtn" onClick={toggleCalculator} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 384">
           <defs>

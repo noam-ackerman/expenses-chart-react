@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import ExpenseDate from "./ExpenseDate";
 import EditItemModal from "./EditItemModal";
 import "../style/ExpenseItem.css";
@@ -52,7 +53,12 @@ export default function ExpenseItem(props) {
           </button>
         </div>
       </div>
-      {editMode && <EditItemModal data={props.data} itemEdit={props.itemEdit} toggleEditItem={toggleEditItem}/>}
+      {editMode &&
+       ReactDOM.createPortal(
+        <EditItemModal data={props.data} itemEdit={props.itemEdit} toggleEditItem={toggleEditItem}/>,
+        document.getElementById("modal-root")
+       )
+      }
     </div>
   );
 }
