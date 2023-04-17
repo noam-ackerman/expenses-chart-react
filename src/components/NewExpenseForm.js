@@ -134,6 +134,7 @@ export default function NewExpenseForm(props) {
         <button
           type="submit"
           className={`submitBtn py-2 px-3 bg-dark bg-gradient text-white shadow ${!valid ? "disabled" : ""}`}
+          disabled = {!valid}
         >
           Add Expense
         </button>
