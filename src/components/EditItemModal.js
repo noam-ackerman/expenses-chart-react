@@ -85,7 +85,12 @@ export default function EditItemModal(props) {
         </div>
         <div className="editItem-actions">
             <button className="cancelBtn py-2 px-3 bg-dark bg-gradient text-white shadow" onClick={cancelEdit}>CANCEL</button>
-            <button type="submit" className={`saveBtn  py-2 px-3 bg-dark bg-gradient text-white shadow  ${!valid ? "disabled" : ""}`}>SAVE</button>
+            <button 
+              type="submit" 
+              disabled = {!valid}
+              className={`saveBtn  py-2 px-3 bg-dark bg-gradient text-white shadow  ${!valid ? "disabled" : ""}`}>
+                SAVE
+            </button>
         </div>
         </form>
      </div>
