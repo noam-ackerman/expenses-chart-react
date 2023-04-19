@@ -55,7 +55,7 @@ export default function NewExpenseForm(props) {
     props.onSaveData(newExpenseData);
     setTitle("");
     setAmount("");
-    setDate("");
+    setDate(`${year}-${month}-${date}`);
   }
 
   function toggleCalculator(){
