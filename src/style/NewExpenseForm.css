@@ -35,10 +35,10 @@
   }
   .newExpenseInput select {
     font: inherit;
-    padding: 9px;
+    padding: 0.52rem;
     border-radius: 6px;
     border: 1px solid #ccc;
-    width: 100px;
+    width: 85px;
     max-width: 100%;
     -webkit-appearance: none;
   }
