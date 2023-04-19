@@ -78,6 +78,7 @@
     border: 1px solid #ccc;
     width:100%;
     max-width: 100%;
+    -webkit-appearance: none;
   }
 
   @media(max-width:500px) {
