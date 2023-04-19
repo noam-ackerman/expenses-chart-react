@@ -8,7 +8,11 @@ import Calculator from "./Calculator";
 export default function NewExpenseForm(props) {
   const [typedTitle, setTitle] = useState("");
   const [typedAmount, setAmount] = useState("");
-  const [typedDate, setDate] = useState("");
+  let date, month, year;
+    date = ("0" + (new Date().getDate())).slice(-2)
+    month = ("0" + (new Date().getMonth() + 1)).slice(-2)
+    year = new Date().getFullYear();
+  const [typedDate, setDate] = useState(`${year}-${month}-${date}`);
   const [valid, setValid] = useState(false);
   const [calculatorMode, setcalculatorMode] = useState(false);
 
