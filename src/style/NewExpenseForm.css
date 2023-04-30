@@ -66,19 +66,19 @@
     gap: 10px;
 
   }
-  .newExpenseAction svg {
+  .newExpenseAction .calculatorBtn svg {
     width:45px;
     height:45px;
     cursor: pointer;
   }
-  .newExpenseAction svg path{
+  .newExpenseAction .calculatorBtn svg path{
     fill:#fff;
     transition: fill 150ms ease;
   }
-  .newExpenseAction svg:hover path:not(.cls-1){
+  .newExpenseAction .calculatorBtn svg:hover path:not(.cls-1){
     fill:#fd9dff;
   }
-  .newExpenseAction svg .cls-1 {
+  .newExpenseAction .calculatorBtn svg .cls-1 {
     fill:transparent;
   }
 
