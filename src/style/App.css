@@ -4,6 +4,14 @@
     display:block;
 }
 
+.Loader {
+    margin: 50px auto;
+    position: absolute;
+    right:50%;
+    bottom:50%;
+    transform: translate(50%, 50%);
+}
+
 @media (max-width:800px) {
     .title-image {
         max-width: 100%;

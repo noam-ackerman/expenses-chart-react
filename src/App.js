@@ -4,6 +4,7 @@ import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
 import ExpensesFilter from "./components/ExpensesFilter";
 import ExpensesChart from "./components/ExpensesChart"
+import { Hearts } from 'react-loader-spinner'
 
 function App() {
   const [expenses, setExpenses] = React.useState(
@@ -22,6 +23,7 @@ function App() {
   );
   const [selectedYear, setSelectedYear] = React.useState("All Time");
   const [years, setYears] = React.useState([]);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
   
 
   function handleAddExpense(newExpenseData) {
@@ -70,11 +72,27 @@ function App() {
 
    return (
     <div className="bg-gradient p-3">
-      <img src="https://images.cooltext.com/5650973.png" alt="expenses-chart-title" className="title-image"/>
-      <NewExpense onAddExpense={handleAddExpense} selectedCurrency={selectedCurrency} sendCurrency={sendCurrency}/>
-      {expenses.length > 0 ? <ExpensesFilter years={years} sendSelectedYear={SelectedYear} selectedYear={selectedYear}/> : null }
-      {expenses.length > 0 ? <ExpensesChart expenses={expenses} years={years} selectedYear={selectedYear}/> : null}
-      <Expenses data={expenses} currency={selectedCurrency} selectedYear={selectedYear} sendDeletedItem={sendDeletedItem} itemEdit={itemEdit}/>
+      <img src="https://images.cooltext.com/5650973.png" alt="expenses-chart-title" className="title-image" style={{ opacity : imageLoaded ? 1 : 0}} onLoad={() => setImageLoaded(true)}/>
+      {imageLoaded ?
+        <>
+          <NewExpense onAddExpense={handleAddExpense} selectedCurrency={selectedCurrency} sendCurrency={sendCurrency}/>
+          {expenses.length > 0 ? <ExpensesFilter years={years} sendSelectedYear={SelectedYear} selectedYear={selectedYear}/> : null }
+          {expenses.length > 0 ? <ExpensesChart expenses={expenses} years={years} selectedYear={selectedYear}/> : null}
+          <Expenses data={expenses} currency={selectedCurrency} selectedYear={selectedYear} sendDeletedItem={sendDeletedItem} itemEdit={itemEdit}/>
+        </>
+      :
+       <div className="Loader">
+        <Hearts 
+          height="180"
+          width="180"
+          color="#fdb4ff"
+          ariaLabel="hearts-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+       </div>
+      }   
     </div>
   );
 }
