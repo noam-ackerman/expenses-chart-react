@@ -21,7 +21,7 @@ export default function NewExpenseForm(props) {
     if(!valid && typedTitle !== "" && typedAmount !== "" && typedDate !== "") {
       setValid(true);
     } else if (valid && (typedTitle === "" || typedAmount === "" || typedDate === "")) {
-        setValid(false);
+      setValid(false);
     }
   }, [valid, typedTitle, typedAmount, typedDate])
 
@@ -68,7 +68,7 @@ export default function NewExpenseForm(props) {
       <div className="newExpenseInputs">
         <div className="newExpenseInput">
           <label className="text-white">Title</label>
-          <input type="text" value={typedTitle} onChange={handleTitleChange} onKeyDown={(e) =>  e.which === 13 ? e.preventDefault() : null}/>
+          <input type="text" value={typedTitle} onChange={handleTitleChange} required/>
         </div>
         <div className="newExpenseInput">
           <label className="text-white">Amount</label>
@@ -78,7 +78,7 @@ export default function NewExpenseForm(props) {
             step="0.01"
             onChange={handleAmountChange}
             value={typedAmount}
-            onKeyDown={(e) =>  e.which === 13 ? e.preventDefault() : null}
+            required
           />
         </div>
         <div className="newExpenseInput">
@@ -88,7 +88,7 @@ export default function NewExpenseForm(props) {
             min="2022-01-01"
             onChange={handleDateChange}
             value={typedDate}
-            onKeyDown={(e) =>  e.which === 13 ? e.preventDefault() : null}
+            required
           />
         </div>
         <div className="newExpenseInput">
@@ -115,7 +115,6 @@ export default function NewExpenseForm(props) {
         <button
           type="submit"
           className={`submitBtn py-2 px-3 bg-dark bg-gradient text-white shadow ${!valid ? "disabled" : ""}`}
-          disabled = {!valid}
         >
           Add Expense
         </button>
