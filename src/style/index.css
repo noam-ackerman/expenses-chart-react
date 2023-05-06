@@ -1,6 +1,7 @@
 body {
-  font-family: "roboto";
+  font-family: system-ui !important;
   background:	#e6d7ff !important;
+  letter-spacing: 0.3px ;
 }
 
 body.modal-open {

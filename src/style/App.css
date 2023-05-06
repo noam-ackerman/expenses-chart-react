@@ -11,7 +11,26 @@
     bottom:50%;
     transform: translate(50%, 50%);
 }
-
+footer {
+    width:100%;
+    position: fixed;
+    bottom:0;
+    left:0;
+    padding:0.3rem;
+    background-color: #fc9cfe;
+    text-align: center;
+    font-size: 0.8rem; 
+    color: #fff;
+    font-weight: 500;
+}
+footer a {
+    color: #fff;
+    cursor: pointer;
+}
+footer a:hover {
+    color:#4826b9;
+    cursor: pointer;
+}
 @media (max-width:800px) {
     .title-image {
         max-width: 100%;
