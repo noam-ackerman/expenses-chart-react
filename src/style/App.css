@@ -19,7 +19,7 @@ footer {
     padding:0.3rem;
     background-color: #fc9cfe;
     text-align: center;
-    font-size: 0.8rem; 
+    font-size: 0.7rem; 
     color: #fff;
     font-weight: 500;
 }
@@ -29,7 +29,6 @@ footer a {
 }
 footer a:hover {
     color:#4826b9;
-    cursor: pointer;
 }
 @media (max-width:800px) {
     .title-image {
