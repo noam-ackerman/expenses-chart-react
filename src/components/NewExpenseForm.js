@@ -7,40 +7,23 @@ import {CalculatorLogo} from "../Logos"
 
 
 export default function NewExpenseForm(props) {
-  const [typedTitle, setTitle] = useState("");
-  const [typedAmount, setAmount] = useState("");
-  let date, month, year;
-    date = ("0" + (new Date().getDate())).slice(-2)
-    month = ("0" + (new Date().getMonth() + 1)).slice(-2)
-    year = new Date().getFullYear();
-  const [typedDate, setDate] = useState(`${year}-${month}-${date}`);
-  const [valid, setValid] = useState(false);
   const [calculatorMode, setcalculatorMode] = useState(false);
-
-  React.useEffect(() => {
-    if(!valid && typedTitle !== "" && typedAmount !== "" && typedDate !== "") {
-      setValid(true);
-    } else if (valid && (typedTitle === "" || typedAmount === "" || typedDate === "")) {
-      setValid(false);
-    }
-  }, [valid, typedTitle, typedAmount, typedDate])
+  let date, month, year;
+  date = ("0" + (new Date().getDate())).slice(-2)
+  month = ("0" + (new Date().getMonth() + 1)).slice(-2)
+  year = new Date().getFullYear();
+  const inputTitle = React.useRef();
+  const inputAmount = React.useRef();
+  const inputDate = React.useRef();
 
   React.useEffect(() => {
     calculatorMode ? document.querySelector("body").classList.add("modal-open") : document.querySelector("body").classList.remove("modal-open")
   }, [calculatorMode])
 
+  React.useLayoutEffect(() => {
+    inputDate.current.value = `${year}-${month}-${date}`;
+  },[year, month, date])
 
-  function handleTitleChange(e) {
-    setTitle(e.target.value);
-  }
-
-  function handleAmountChange(e) {
-    setAmount(e.target.value);
-  }
-
-  function handleDateChange(e) {
-    setDate(e.target.value);
-  }
   const currencies = ["€", "$",  "£", "₪"];
   function handleCurrencyChange(e) {
     props.sendCurrency(e.target.value);
@@ -49,14 +32,14 @@ export default function NewExpenseForm(props) {
   function handleSubmit(e) {
     e.preventDefault();
     const newExpenseData = {
-      title: typedTitle,
-      amount: typedAmount,
-      date: new Date(typedDate),
+      title: inputTitle.current.value,
+      amount: inputAmount.current.value,
+      date: new Date(inputDate.current.value),
     };
     props.onSaveData(newExpenseData);
-    setTitle("");
-    setAmount("");
-    setDate(`${year}-${month}-${date}`);
+    inputTitle.current.value = "";
+    inputAmount.current.value = "";
+    inputDate.current.value = `${year}-${month}-${date}`;
   }
 
   function toggleCalculator(){
@@ -68,7 +51,10 @@ export default function NewExpenseForm(props) {
       <div className="newExpenseInputs">
         <div className="newExpenseInput">
           <label className="text-white">Title</label>
-          <input type="text" value={typedTitle} onChange={handleTitleChange} required/>
+          <input 
+            type="text" 
+            ref={inputTitle} 
+            required/>
         </div>
         <div className="newExpenseInput">
           <label className="text-white">Amount</label>
@@ -76,8 +62,7 @@ export default function NewExpenseForm(props) {
             type="number"
             min="0.01"
             step="0.01"
-            onChange={handleAmountChange}
-            value={typedAmount}
+            ref={inputAmount}
             required
           />
         </div>
@@ -86,8 +71,7 @@ export default function NewExpenseForm(props) {
           <input
             type="date"
             min="2022-01-01"
-            onChange={handleDateChange}
-            value={typedDate}
+            ref={inputDate}
             required
           />
         </div>
@@ -114,7 +98,7 @@ export default function NewExpenseForm(props) {
         </div>
         <button
           type="submit"
-          className={`submitBtn py-2 px-3 bg-dark bg-gradient text-white shadow ${!valid ? "disabled" : ""}`}
+          className="submitBtn py-2 px-3 bg-dark bg-gradient text-white shadow"
         >
           Add Expense
         </button>

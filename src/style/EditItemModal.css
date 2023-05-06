@@ -46,10 +46,6 @@
     background: #5b6063 !important;
   }
 
- .saveBtn.disabled {
-    pointer-events: none;
-    opacity:0.4;
-  }
 
   .editItem-actions {
     display:flex;

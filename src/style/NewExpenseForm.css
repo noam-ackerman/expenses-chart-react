@@ -55,10 +55,6 @@
     background: #5b6063 !important;
   }
   
-  .submitBtn.disabled {
-    pointer-events: none;
-    opacity:0.4;
-  }
   .newExpenseAction {
     display: flex;
     align-items: center;
