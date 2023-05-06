@@ -77,13 +77,16 @@
     -webkit-appearance: none;
   }
 
-  @media(max-width:500px) {
+  @media(max-width:530px) {
     .editItemModal {
         min-width:100vw;
         max-width: 100vw;
         height: fit-content;
+        -webkit-transform: none;
         transform: none;
-        top: 0;
+        border: none;
+        border-radius: 0;
+        bottom: 0;
         right: 0;
     }
 
