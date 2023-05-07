@@ -85,7 +85,8 @@
         -webkit-transform: none;
         transform: none;
         border: none;
-        border-radius: 0;
+        border-top: 2px solid #fff;
+        border-radius: 2px;
         bottom: 0;
         right: 0;
     }
