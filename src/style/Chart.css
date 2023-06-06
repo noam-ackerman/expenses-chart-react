@@ -1,85 +1,80 @@
 .chart-wrapper.years {
-    background: cornflowerblue;
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 30px;
-    border-radius: 10px;
-    display: flex;
-    gap: 2.1rem;
-    align-items: center;
-    justify-content: left;
-    height: fit-content;
-    flex-wrap:wrap;
+  background: cornflowerblue;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  gap: 2.1rem;
+  align-items: center;
+  justify-content: left;
+  height: fit-content;
+  flex-wrap: wrap;
 }
 
 .chart-wrapper.months {
-    background: cornflowerblue;
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 30px;
-    border-radius: 10px;
-    display: flex;
-    gap: 2.1rem;
-    align-items: center;
-    justify-content: center;
-    height: fit-content;
-    flex-wrap:wrap;
+  background: cornflowerblue;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  gap: 2.1rem;
+  align-items: center;
+  justify-content: center;
+  height: fit-content;
+  flex-wrap: wrap;
 }
 
 .chart-bar {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 30px;
-    height:12em;
-  }
-  
-  .chart-bar-inner {
-    height: 100%;
-    width: 100%;
-    border: 1px solid #313131;
-    border-radius: 12px;
-    background-color: #c3b4f3;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  
-  .chart-bar-fill {
-    background-color: #4826b9;
-    width: 100%;
-    transition: all 0.3s ease-out;
-  }
-  
-  .chart-bar-label {
-    font-weight: bold;
-    font-size: 0.8rem;
-    text-align: center;
-  }
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+  height: 12em;
+}
 
-  @media (max-width:830px) {
-    .chart-wrapper.months {
-      gap: 1.7rem;
-    }
+.chart-bar-inner {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #313131;
+  border-radius: 12px;
+  background-color: #c3b4f3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
 
+.chart-bar-fill {
+  background-color: #4826b9;
+  width: 100%;
+  transition: all 0.3s ease-out;
+}
+
+.chart-bar-label {
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 830px) {
+  .chart-wrapper.months {
+    gap: 1.7rem;
   }
-  @media (max-width:760px) {
-    .chart-wrapper.months {
-      gap: 2.2rem;
-    }
-
+}
+@media (max-width: 760px) {
+  .chart-wrapper.months {
+    gap: 2.2rem;
   }
+}
 
-  @media (max-width:450px) {
-    .chart-wrapper.months {
-      gap: 3.2rem;
-    }
-    .chart-wrapper.years  {
-      gap: 2rem;
-    }
-
+@media (max-width: 450px) {
+  .chart-wrapper.months {
+    gap: 3.2rem;
   }
-
-
+  .chart-wrapper.years {
+    gap: 2rem;
+  }
+}

@@ -1,88 +1,85 @@
 .newExpense {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: cornflowerblue;
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 30px;
-    border-radius: 10px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: cornflowerblue;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 10px;
+}
 
-  
-  .newExpenseInputs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 23px;
-    text-align: left;
-  }
-  
-  .newExpenseInput label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  .newExpenseInput input {
-    font: inherit;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 320px;
+.newExpenseInputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 23px;
+  text-align: left;
+}
+
+.newExpenseInput label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.newExpenseInput input {
+  font: inherit;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 320px;
+  max-width: 100%;
+  -webkit-appearance: none;
+}
+.newExpenseInput select {
+  font: inherit;
+  padding: 0.52rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 85px;
+  max-width: 100%;
+  -webkit-appearance: none;
+}
+
+.submitBtn {
+  font-size: 17px;
+  border: 2px solid white;
+  border-radius: 6px;
+  transition: all 150ms ease;
+  float: right;
+}
+
+.submitBtn:hover {
+  background: #5b6063 !important;
+}
+
+.newExpenseAction {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 10px;
+}
+.newExpenseAction .calculatorBtn svg {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+.newExpenseAction .calculatorBtn svg path {
+  fill: #fff;
+  transition: fill 150ms ease;
+}
+.newExpenseAction .calculatorBtn svg:hover path:not(.cls-1) {
+  fill: #fd9dff;
+}
+.newExpenseAction .calculatorBtn svg .cls-1 {
+  fill: transparent;
+}
+
+@media (max-width: 800px) {
+  .newExpense,
+  .newExpense form,
+  .newExpenseInput {
     max-width: 100%;
-    -webkit-appearance: none;
   }
-  .newExpenseInput select {
-    font: inherit;
-    padding: 0.52rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width: 85px;
-    max-width: 100%;
-    -webkit-appearance: none;
-  }
-  
-  .submitBtn {
-    font-size: 17px;
-    border: 2px solid white;
-    border-radius: 6px;
-    transition: all 150ms ease;
-    float: right;
-  }
-  
-  .submitBtn:hover {
-    background: #5b6063 !important;
-  }
-  
-  .newExpenseAction {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    gap: 10px;
-
-  }
-  .newExpenseAction .calculatorBtn svg {
-    width:45px;
-    height:45px;
-    cursor: pointer;
-  }
-  .newExpenseAction .calculatorBtn svg path{
-    fill:#fff;
-    transition: fill 150ms ease;
-  }
-  .newExpenseAction .calculatorBtn svg:hover path:not(.cls-1){
-    fill:#fd9dff;
-  }
-  .newExpenseAction .calculatorBtn svg .cls-1 {
-    fill:transparent;
-  }
-
-
-
-@media (max-width:800px) {
-  .newExpense, .newExpense form, .newExpenseInput {
-      max-width: 100%;
-  }
-
 }

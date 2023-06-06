@@ -1,127 +1,126 @@
 .expenseItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: cornflowerblue;
-    max-width: 800px;
-    margin: 10px auto;
-    border-radius: 10px;
-    position: relative;
-  }
-  
-  .expenseItemDescription {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-  .expenseItemTitle {
-    flex: 1;
-    font-weight: bold;
-    line-height: 40px;
-    cursor: default;
-  }
-  .expenseItemAmount {
-    font-weight: bold;
-    border-radius: 10px;
-    padding:0.25rem 0.8rem;
-    cursor: default;
-  }
-  
-  .expenseItemDate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: cornflowerblue;
+  max-width: 800px;
+  margin: 10px auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+.expenseItemDescription {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.expenseItemTitle {
+  flex: 1;
+  font-weight: bold;
+  line-height: 40px;
+  cursor: default;
+}
+.expenseItemAmount {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 0.25rem 0.8rem;
+  cursor: default;
+}
+
+.expenseItemDate {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1px;
+  width: 110px;
+  height: 100px;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.expenseItemDate .month {
+  font-size: 0.9rem;
+}
+
+.expenseItemDate .day {
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: normal;
+}
+
+.expenseItemDate .year {
+  font-size: 0.9rem;
+}
+
+.amount-delete-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 9px;
+}
+.delete-item {
+  background-color: dimgray;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 150ms ease;
+  padding: 0.25rem 0.6rem;
+}
+.edit-item {
+  background-color: #4826b9;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 150ms ease;
+  padding: 0.25rem 0.6rem;
+}
+
+.delete-item:hover {
+  background-color: darkgray;
+}
+.edit-item:hover {
+  background-color: #c3b4f3;
+}
+
+.hidden {
+  display: none;
+}
+
+.expenseItemInput {
+  font: inherit;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  flex: 1;
+  max-width: 100%;
+}
+
+.expenseItemAmountInput {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 90px;
+  margin-right: 5px;
+}
+
+svg .cls-1 {
+  fill: transparent;
+}
+
+@media (max-width: 650px) {
+  .expenseItem {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 1px;
-    width: 110px;
-    height: 100px;
-    border-radius: 10px;
-    cursor: default;
   }
-  
-  .expenseItemDate .month {
-    font-size: 0.9rem;
-  }
-  
-  .expenseItemDate .day {
-    font-weight: bold;
-    font-size: 1.5rem;
-    line-height: normal;
-  }
-
-  .expenseItemDate .year {
-    font-size: 0.9rem;
-  }
-  
-  .amount-delete-wrapper {
-    display:flex;
-    justify-content: flex-end;
-    align-items: stretch;
-    gap:9px;
-  }
-  .delete-item {
-     background-color:dimgray;
-     border-radius: 10px;
-     font-weight: 700;
-     font-size: 0.9rem;
-     transition: all 150ms ease;
-     padding:0.25rem 0.6rem;
-  }
-  .edit-item {
-    background-color:#4826b9;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 150ms ease;
-    padding:0.25rem 0.6rem;
-  }
-
-  .delete-item:hover {
-    background-color:darkgray;
-  }
-  .edit-item:hover {
-    background-color: #c3b4f3;
-  }
-
-  .hidden {
-    display:none;
-  }
-
-  .expenseItemInput {
-    font: inherit;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    flex:1;
-    max-width: 100%;
-  }
-
-  .expenseItemAmountInput {
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    width:90px;
-    margin-right: 5px;
-  }
-
-  svg .cls-1 {
-    fill: transparent;
-  }
-
-
-   @media(max-width:650px) {
-    .expenseItem {
-      flex-direction: column;
-    }
-   .expenseItemDescription {
+  .expenseItemDescription {
     width: 100%;
     flex-direction: column;
-   }
-   .expenseItemTitle{
+  }
+  .expenseItemTitle {
     text-align: center;
-   }
-  } 
+  }
+}

@@ -1,39 +1,37 @@
 .title-image {
-    max-width: 800px;
-    margin: 20px auto 30px;
-    display:block;
+  max-width: 800px;
+  margin: 20px auto 30px;
+  display: block;
 }
 
 .Loader {
-    margin: 50px auto;
-    position: absolute;
-    right:50%;
-    bottom:50%;
-    transform: translate(50%, 50%);
+  margin: 50px auto;
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
 }
 footer {
-    width:100%;
-    position: fixed;
-    bottom:0;
-    left:0;
-    padding:0.3rem;
-    background-color: #fc9cfe;
-    text-align: center;
-    font-size: 0.7rem; 
-    color: #fff;
-    font-weight: 500;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0.3rem;
+  background-color: #fc9cfe;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #fff;
+  font-weight: 500;
 }
 footer a {
-    color: #fff;
-    cursor: pointer;
+  color: #fff;
+  cursor: pointer;
 }
 footer a:hover {
-    color:#4826b9;
+  color: #4826b9;
 }
-@media (max-width:800px) {
-    .title-image {
-        max-width: 100%;
-    }
+@media (max-width: 800px) {
+  .title-image {
+    max-width: 100%;
+  }
 }
-
- 

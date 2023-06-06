@@ -1,23 +1,23 @@
 .filter-wrapper {
-    background: cornflowerblue;
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 30px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  background: cornflowerblue;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .year-selector {
-    width:130px;
-    font: inherit;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    max-width: 100%;
+  width: 130px;
+  font: inherit;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  max-width: 100%;
 }
 
 .filter-title {
-    font-weight: bold;
+  font-weight: bold;
 }

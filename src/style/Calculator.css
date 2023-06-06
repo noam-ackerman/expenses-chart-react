@@ -1,68 +1,65 @@
-
 .calculatorOverlay {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgb(0,0,0,0.6);
-    z-index: 2;
-    position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0, 0, 0, 0.6);
+  z-index: 2;
+  position: fixed;
 }
 
 .calculator-modal {
-   min-width: 330px;
-   max-width: 330px;
-   background-color: #fdb4ff;
-   border-radius: 10px;
-   position: fixed;
-   transform: translate(50%, 50%);
-   bottom:50%;
-   right:50%;
-   z-index: 3;
+  min-width: 330px;
+  max-width: 330px;
+  background-color: #fdb4ff;
+  border-radius: 10px;
+  position: fixed;
+  transform: translate(50%, 50%);
+  bottom: 50%;
+  right: 50%;
+  z-index: 3;
 }
 
 .calculator-screen {
-    max-width: 100%;
-    height:62px;
-    font: inherit;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    margin:5px;
-    margin-bottom:15px;
-    font-size: 1.8rem;
-    text-align: right;
-    overflow-x: auto;
+  max-width: 100%;
+  height: 62px;
+  font: inherit;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  margin: 5px;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  text-align: right;
+  overflow-x: auto;
 }
 
 .calculator-buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
 }
 .calculator-buttons .button {
   border-radius: 6px;
-    background-color: rgb(247, 234, 214);
-    color:slateblue;
-    border: 1px solid slateblue;
-    flex-wrap: wrap;
-    font: inherit;
-    font-size:1.8rem;
-    padding: 8px 10px;
-    margin:5px;
-    text-align:center;
-    font-weight:bold;
-    cursor: pointer;
+  background-color: rgb(247, 234, 214);
+  color: slateblue;
+  border: 1px solid slateblue;
+  flex-wrap: wrap;
+  font: inherit;
+  font-size: 1.8rem;
+  padding: 8px 10px;
+  margin: 5px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 .calculator-buttons .button:hover {
-    color: cornflowerblue;
+  color: cornflowerblue;
 }
 
 .orange {
-    background-color: rgb(251, 210, 173) !important;
+  background-color: rgb(251, 210, 173) !important;
 }
-
-
