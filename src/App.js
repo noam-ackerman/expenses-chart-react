@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import "./style/App.css";
+import { Hearts } from "react-loader-spinner";
 import Expenses from "./components/Expenses";
 import NewExpense from "./components/NewExpense";
 import ExpensesFilter from "./components/ExpensesFilter";
 import ExpensesChart from "./components/ExpensesChart";
-import { Hearts } from "react-loader-spinner";
+import "./style/App.css";
 
 function App() {
   const [expenses, setExpenses] = React.useState(

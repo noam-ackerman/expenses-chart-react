@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import "../style/NewExpenseForm.css";
 import Calculator from "./Calculator";
 import { CalculatorLogo } from "../Logos";
+import "../style/NewExpenseForm.css";
 
 export default function NewExpenseForm(props) {
   const [calculatorMode, setcalculatorMode] = useState(false);
