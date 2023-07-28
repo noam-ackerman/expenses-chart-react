@@ -5,7 +5,7 @@ export default function ExpensesChart(props) {
   if (props.selectedYear === "All Time") {
     let expenses = props.expenses;
     let years = props.years;
-    let chartDataPoints = [];
+    const chartDataPoints = [];
     years.forEach((year) => {
       chartDataPoints.push({ label: year, value: 0 });
     });
