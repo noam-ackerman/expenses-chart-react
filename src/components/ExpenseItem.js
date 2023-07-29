@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import ExpenseDate from "./ExpenseDate";
 import EditItemModal from "./EditItemModal";
-import { EditLogo, DeleteLogo } from "../Logos";
+import { EditLogo, DeleteLogo } from "../utilities/Logos";
+import { useExpensesContext } from "../context/expensesContext";
 import "../style/ExpenseItem.css";
 
 export default function ExpenseItem(props) {
+  const expense = props.data;
+  const { deleteExpense, selectedCurrency } = useExpensesContext();
   const [editMode, setEditMode] = React.useState(false);
 
   const title = React.useRef();
@@ -14,7 +17,7 @@ export default function ExpenseItem(props) {
   const editBtn = React.useRef();
 
   function deleteItem(e) {
-    props.sendDeletedItem(props.data);
+    deleteExpense(expense.id);
   }
 
   function toggleEditItem(e) {
@@ -29,18 +32,18 @@ export default function ExpenseItem(props) {
 
   return (
     <div className="expenseItem p-2 bg-gradient shadow-sm">
-      <ExpenseDate date={props.data.date} />
+      <ExpenseDate date={expense.date} />
       <div className="expenseItemDescription p-2">
         <div ref={title} className="expenseItemTitle ms-1 p-1 fs-4 text-white">
-          {props.data.title}
+          {expense.title}
         </div>
         <div className="amount-delete-wrapper fs-5">
           <div
             ref={amount}
             className="expenseItemAmount border border-2 border-light bg-dark bg-gradient shadow text-white"
           >
-            {props.currency}
-            {props.data.amount}
+            {selectedCurrency}
+            {expense.amount}
           </div>
           <button
             ref={editBtn}
@@ -60,11 +63,7 @@ export default function ExpenseItem(props) {
       </div>
       {editMode &&
         ReactDOM.createPortal(
-          <EditItemModal
-            data={props.data}
-            itemEdit={props.itemEdit}
-            toggleEditItem={toggleEditItem}
-          />,
+          <EditItemModal data={expense} toggleEditItem={toggleEditItem} />,
           document.getElementById("modal-root")
         )}
     </div>

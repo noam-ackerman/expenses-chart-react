@@ -1,10 +1,11 @@
 import React from "react";
+import { useExpensesContext } from "../context/expensesContext";
 import Chart from "./Chart.js";
 
-export default function ExpensesChart(props) {
-  if (props.selectedYear === "All Time") {
-    let expenses = props.expenses;
-    let years = props.years;
+export default function ExpensesChart() {
+  const { selectedYear, expenses, years } = useExpensesContext();
+
+  if (selectedYear === "All Time") {
     const chartDataPoints = [];
     years.forEach((year) => {
       chartDataPoints.push({ label: year, value: 0 });
@@ -37,8 +38,8 @@ export default function ExpensesChart(props) {
       { label: "Dec", value: 0 },
     ];
 
-    let filteredExpenses = props.expenses.filter(
-      (expense) => +new Date(expense.date).getFullYear() === +props.selectedYear
+    let filteredExpenses = expenses.filter(
+      (expense) => +new Date(expense.date).getFullYear() === +selectedYear
     );
     filteredExpenses.forEach((expense) => {
       const expenseMonth = new Date(expense.date).getMonth();

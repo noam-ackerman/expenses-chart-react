@@ -1,19 +1,18 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
+import { useExpensesContext } from "../context/expensesContext";
 import "../style/expensesFilter.css";
 
-export default function ExpensesFilter(props) {
-  const years = props.years;
-
-  function handleYearChange(event) {
-    props.sendSelectedYear(event.target.value);
-  }
-
+export default function ExpensesFilter() {
+  const { years, selectedYear, setSelectedYear } = useExpensesContext();
   const selector = useRef();
 
-  useEffect(() => {
-    let yearValue = selector.current.value;
-    if (props.selectedYear !== yearValue) {
-      props.sendSelectedYear(yearValue);
+  function handleYearChange() {
+    setSelectedYear(selector.current.value);
+  }
+
+  React.useEffect(() => {
+    if (selectedYear !== selector.current.value) {
+      setSelectedYear(selector.current.value);
     }
   });
 
@@ -23,7 +22,7 @@ export default function ExpensesFilter(props) {
       <select
         className="year-selector"
         ref={selector}
-        value={props.selectedYear}
+        value={selectedYear}
         onChange={handleYearChange}
       >
         <option>All Time</option>

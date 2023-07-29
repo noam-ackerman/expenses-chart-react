@@ -7,7 +7,7 @@ export default function Calculator(props) {
     array: [],
     error: false,
   });
-  const [accumulativeCalc, setaccumulativeCalc] = React.useState(".");
+  const [accumulativeCalc, setAccumulativeCalc] = React.useState(".");
 
   function handleOverlayClick(event) {
     if (event.target !== calculatorModal.current) {
@@ -46,7 +46,7 @@ export default function Calculator(props) {
   }
 
   React.useEffect(() => {
-    setaccumulativeCalc(
+    setAccumulativeCalc(
       calculation.array.length === 0 && !calculation.error
         ? "."
         : calculation.error

@@ -1,11 +1,14 @@
 import React, { useRef } from "react";
+import { useExpensesContext } from "../context/expensesContext";
 import "../style/EditItemModal.css";
 
 export default function EditItemModal(props) {
+  const expense = props.data;
+  const { editExpense } = useExpensesContext();
   let date, month, year;
-  date = ("0" + new Date(props.data.date).getDate()).slice(-2);
-  month = ("0" + (new Date(props.data.date).getMonth() + 1)).slice(-2);
-  year = new Date(props.data.date).getFullYear();
+  date = ("0" + new Date(expense.date).getDate()).slice(-2);
+  month = ("0" + (new Date(expense.date).getMonth() + 1)).slice(-2);
+  year = new Date(expense.date).getFullYear();
 
   const editModal = useRef();
   const inputTitle = useRef();
@@ -13,15 +16,19 @@ export default function EditItemModal(props) {
   const inputDate = useRef();
 
   React.useLayoutEffect(() => {
-    inputTitle.current.value = props.data.title;
-    inputAmount.current.value = props.data.amount;
+    inputTitle.current.value = expense.title;
+    inputAmount.current.value = expense.amount;
     inputDate.current.value = `${year}-${month}-${date}`;
-  }, [props.data.title, props.data.amount, year, month, date]);
+  }, [expense.title, expense.amount, year, month, date]);
 
   function handleOverlayClick(event) {
     if (event.target !== editModal) {
       props.toggleEditItem();
     }
+  }
+
+  function cancelEdit() {
+    props.toggleEditItem();
   }
 
   function handleSubmit(e) {
@@ -31,11 +38,7 @@ export default function EditItemModal(props) {
       amount: inputAmount.current.value,
       date: new Date(inputDate.current.value),
     };
-    props.itemEdit(fixedExpenseData, props.data.id);
-    props.toggleEditItem();
-  }
-
-  function cancelEdit() {
+    editExpense(fixedExpenseData, expense.id);
     props.toggleEditItem();
   }
 
