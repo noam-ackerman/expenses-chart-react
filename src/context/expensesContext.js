@@ -26,7 +26,15 @@ const ExpensesContextProvider = ({ children }) => {
   const currencies = ["€", "$", "£", "₪"];
 
   function addExpense(newExpenseData) {
-    setExpenses((prevExpenses) => [newExpenseData, ...prevExpenses]);
+    setExpenses((prevExpenses) => {
+      const newExpenses = [newExpenseData, ...prevExpenses];
+      newExpenses.sort(function (a, b) {
+        let aTime = new Date(a.date).getTime(),
+          bTime = new Date(b.date).getTime();
+        return bTime - aTime;
+      });
+      return newExpenses;
+    });
   }
 
   function deleteExpense(expenseId) {

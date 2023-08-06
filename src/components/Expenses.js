@@ -5,12 +5,6 @@ import ExpenseItem from "./ExpenseItem";
 export default function Expenses() {
   const { expenses, selectedYear } = useExpensesContext();
 
-  expenses.sort(function (a, b) {
-    var aTime = new Date(a.date).getTime(),
-      bTime = new Date(b.date).getTime();
-    return bTime - aTime;
-  });
-
   return (
     <div className="expenseItemsGroup">
       {selectedYear === "All Time"
